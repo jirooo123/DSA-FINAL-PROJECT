@@ -1,0 +1,22 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+     <link rel="stylesheet" href="{% static 'library_app/login.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>Login</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username">
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password">
+      
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
