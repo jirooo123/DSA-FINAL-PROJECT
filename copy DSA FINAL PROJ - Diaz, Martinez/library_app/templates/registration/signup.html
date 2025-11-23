@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up - Library System</title>
+    <link rel="stylesheet" href="{% static 'library_app/login.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Join the<br>Library</h1>
+
+    <div class="form-wrapper">
+        
+        {% if form.errors %}
+            <div class="alert error">
+                Please correct the errors below.
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            
+            {% for field in form %}
+                <label>{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <small>{{ field.help_text }}</small>
+                {% endif %}
+                {% if field.errors %}
+                    <div style="color: red; font-size: 0.8em; margin-bottom: 10px;">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <button type="submit">Create Account</button>
+        </form>
+
+        <p>
+            Already a member? <br>
+            <a href="{% url 'login' %}">Login here</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

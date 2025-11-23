@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>My Borrowed Books</h2>
+{% for item in borrowed %}
+    <div class="book-card">
+        <h4>{{ item.book.title }}</h4>
+        <p>Borrowed at: {{ item.borrowed_at }}</p>
+        
+        {% if item.is_overdue %}
+            <p class="overdue">STATUS: OVERDUE (10 mins passed)</p>
+            <button disabled>Access Revoked</button>
+            <button>Return Book</button>
+        {% else %}
+            <p class="active">Time Remaining: {{ item.remaining_time }} minutes</p>
+            {% if item.book.pdf_stub %}
+                <a href="{{ item.book.pdf_stub.url }}" target="_blank">READ PDF STUB</a>
+            {% else %}
+                <p>No file content available.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+{% empty %}
+    <p>You haven't borrowed any books.</p>
+{% endfor %}
+{% endblock %}

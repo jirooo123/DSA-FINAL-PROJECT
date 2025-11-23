@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Library System</title>
+    <link rel="stylesheet" href="{% static 'library_app/login.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Library Management System</h1>
+
+    <div class="form-wrapper">
+        
+        {% if form.errors %}
+            <div class="alert error">
+                Your username or password was incorrect.
+            </div>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            
+            {% for field in form %}
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }} 
+                {% if field.help_text %}
+                    <small>{{ field.help_text }}</small>
+                {% endif %}
+            {% endfor %}
+
+            <button type="submit">Login to Dashboard</button>
+        </form>
+
+        <p>
+            Don't have an account? <br>
+            <a href="{% url 'signup' %}">Create New Account</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

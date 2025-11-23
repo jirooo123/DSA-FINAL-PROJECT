@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>DM Library</h2>
+<form method="get">
+    <input type="text" name="q" placeholder="Title, ID, or Year Range (2000-2010)...">
+    <select name="type">
+        <option value="title">Title (Binary Search)</option>
+        <option value="id">ID (Hashing)</option>
+        <option value="range">Year Range (Tree)</option>
+    </select>
+    <button type="submit">Search</button>
+</form>
+
+{% if message %}
+    <p style="color: orange;">{{ message }}</p>
+{% endif %}
+
+<h3>Results</h3>
+{% for book in books %}
+    <div class="book-card">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            
+            <div>
+                <strong>{{ book.title }}</strong> <small>(ID: {{ book.id }})</small><br>
+                <span style="font-size: 0.9em; color: #7f8c8d;">By {{ book.author }} | {{ book.year }}</span>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+                
+                <a href="{% url 'borrow_book' book.id %}" class="borrow-btn">Borrow</a>
+
+                {% if user.is_staff %}
+                    <a href="{% url 'delete_book' book.id %}" 
+                       class="delete-btn"
+                       onclick="return confirm('Are you sure you want to delete {{ book.title }}?');">
+                       Delete
+                    </a>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+{% empty %}
+    <p style="text-align: center;">No books available.</p>
+{% endfor %}
+{% endblock %}

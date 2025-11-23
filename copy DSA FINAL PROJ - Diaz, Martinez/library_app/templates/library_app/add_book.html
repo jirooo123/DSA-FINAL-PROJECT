@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Add New Book</h2>
+    <p class="subtitle">Admin Access Only</p>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {% if field.errors %}
+                    <div class="error-msg">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <button type="submit" class="save-btn">Save Book</button>
+    </form>
+    
+    <a href="{% url 'library_home' %}" class="cancel-link">Cancel</a>
+</div>
+{% endblock %}

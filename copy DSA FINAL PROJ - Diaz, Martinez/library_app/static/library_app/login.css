@@ -1,0 +1,147 @@
+/* Body with light background and centered content */
+body {
+  background-color: #f4f7f8;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+/* Container for side-by-side layout */
+.container {
+  display: flex;
+  align-items: flex-start; /* Changed to flex-start to handle different heights better */
+  gap: 60px;
+  background: white;
+  padding: 60px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Title on the left side */
+h1 {
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 3em;
+  margin: 0;
+  flex-shrink: 0;
+  width: 250px; /* Fixed width to ensure separation */
+  line-height: 1.2;
+}
+
+/* Wrapper for the right side (Messages + Form + Link) */
+.form-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Alert Messages styling */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    font-size: 0.95em;
+}
+.alert.error {
+    background-color: #fde8e8;
+    color: #c0392b;
+    border: 1px solid #fab1a0;
+}
+.alert.success {
+    background-color: #e8f8f5;
+    color: #27ae60;
+    border: 1px solid #a9dfbf;
+}
+
+/* Form Inputs */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #3498db;
+  outline: none;
+  background-color: #fbfbfb;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Helper text */
+small {
+  display: block;
+  color: #888;
+  font-size: 0.8em;
+  margin-top: -15px;
+  margin-bottom: 20px;
+}
+
+/* Bottom Link */
+p {
+  margin-top: 20px;
+  text-align: center;
+  color: #666;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    gap: 30px;
+  }
+  
+  h1 {
+    width: auto;
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+}
