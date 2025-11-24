@@ -1,4 +1,4 @@
-/* Body with light background and centered content */
+
 body {
   
   background-color: #f4f7f8;
@@ -12,10 +12,10 @@ body {
   justify-content: center;  
 }
 
-/* Container for side-by-side layout */
+
 .container {
   display: flex;
-  align-items: flex-start; /* Changed to flex-start to handle different heights better */
+  align-items: flex-start;
   gap: 60px;
   background: white;
   padding: 60px;
@@ -25,7 +25,7 @@ body {
   width: 100%;
 }
 
-/* Title on the left side */
+
 h1 {
   color: #2c3e50;
   font-weight: 500;
