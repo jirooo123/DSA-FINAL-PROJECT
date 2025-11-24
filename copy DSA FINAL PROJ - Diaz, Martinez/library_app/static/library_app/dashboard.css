@@ -2,30 +2,53 @@
 
 /* Reset some default browser styles */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Default color removed here to allow specific targeting later */
 }
+
 
 body {
-  background-color: #f4f7f8;
-  padding: 20px;
-  max-width: 900px;
-  margin: 0 auto;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/images/lib_bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    
+    /* Global text color for the background is White */
+    color: #ecf0f1;
 }
 
+/* Headings on the main background (like "DM Library") */
 h1, h2, h3 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #2c3e50;
-  font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff; 
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-/* Navbar specific styling */
-nav {
+/* --- WHITE CARD CONTAINERS --- */
+/* These elements float on top of the dark background, so they need White BG + Dark Text */
+nav, .search-container, .book-card, .form-container {
     background-color: white;
+    color: #333 !important; /* Force dark text inside cards */
+}
+
+/* Reset headings inside white cards to Dark Blue */
+.form-container h2, .book-card strong, .book-card h3 {
+    color: #2c3e50;
+    text-shadow: none;
+}
+
+/* --- NAVBAR --- */
+nav {
     padding: 15px;
     border-radius: 6px;
     margin-bottom: 30px;
@@ -36,73 +59,71 @@ nav {
 }
 
 a {
-  color: #3498db;
-  text-decoration: none;
-  margin-right: 15px;
-  transition: color 0.3s ease;
-  font-weight: 600;
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+    font-weight: 600;
 }
 
 a:hover {
-  color: #2980b9;
-  text-decoration: underline;
+    color: #2980b9;
+    text-decoration: underline;
 }
 
-/* Form Styles */
+/* --- FORM STYLES --- */
 form {
-  margin: 20px 0;
-  text-align: center;
+    margin: 20px 0;
+    text-align: center;
 }
 
 input[type="text"], select {
-  padding: 8px 12px;
-  font-size: 1em;
-  border: 1.5px solid #ccc;
-  border-radius: 4px;
-  margin-right: 10px;
-  width: 200px;
-  max-width: 80vw;
-  transition: border-color 0.3s ease;
+    padding: 8px 12px;
+    font-size: 1em;
+    border: 1.5px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 200px;
+    max-width: 80vw;
+    transition: border-color 0.3s ease;
+    color: #333; /* Input text is dark */
 }
 
 input[type="text"]:focus, select:focus {
-  border-color: #3498db;
-  outline: none;
+    border-color: #3498db;
+    outline: none;
 }
 
 button {
-  padding: 8px 16px;
-  background-color: #3498db;
-  border: none;
-  color: white;
-  font-weight: 600;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    padding: 8px 16px;
+    background-color: #3498db;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #2980b9;
+    background-color: #2980b9;
 }
 
-/* THE CARDS 
-   I applied your 'ul li' style to '.book-card' as well 
-   so the existing HTML works automatically.
-*/
+/* --- BOOK CARDS --- */
 ul {
-  list-style: none;
-  margin-top: 30px;
-  padding-left: 0;
+    list-style: none;
+    margin-top: 30px;
+    padding-left: 0;
 }
 
 ul li, .book-card {
-  background-color: white;
-  margin-bottom: 12px;
-  padding: 15px 20px;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  font-size: 1.1em;
-  border-left: 5px solid #3498db; /* Added a nice accent line */
+    background-color: white;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-size: 1.1em;
+    border-left: 5px solid #3498db; 
 }
 
 /* Helper classes */
@@ -111,12 +132,10 @@ ul li, .book-card {
 
 
 /* --- ADD BOOK FORM STYLES --- */
-
-/* The white card container */
 .form-container {
     background: white;
     max-width: 500px;
-    margin: 40px auto; /* Centers it vertically and horizontally */
+    margin: 40px auto; 
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -134,7 +153,6 @@ ul li, .book-card {
     font-size: 0.9em;
 }
 
-/* Individual input groups */
 .form-group {
     margin-bottom: 20px;
     text-align: left;
@@ -147,7 +165,6 @@ ul li, .book-card {
     color: #34495e;
 }
 
-/* Style the inputs (Title, Author, Year) */
 .form-group input[type="text"],
 .form-group input[type="number"],
 .form-group input[type="file"] {
@@ -156,8 +173,9 @@ ul li, .book-card {
     border: 2px solid #ecf0f1;
     border-radius: 6px;
     font-size: 1rem;
-    box-sizing: border-box; /* Ensures padding doesn't break width */
+    box-sizing: border-box;
     transition: border-color 0.3s;
+    color: #333;
 }
 
 .form-group input:focus {
@@ -165,7 +183,6 @@ ul li, .book-card {
     outline: none;
 }
 
-/* The Green Save Button */
 .save-btn {
     width: 100%;
     padding: 12px;
@@ -184,7 +201,6 @@ ul li, .book-card {
     background-color: #219150;
 }
 
-/* The Cancel Link */
 .cancel-link {
     display: block;
     text-align: center;
@@ -199,16 +215,14 @@ ul li, .book-card {
     text-decoration: underline;
 }
 
-/* Error messages */
 .error-msg {
     color: #e74c3c;
     font-size: 0.85em;
     margin-top: 5px;
 }
 
-/* --- BUTTONS INSIDE CARDS --- */
 
-/* The Blue Borrow Button */
+/* --- BUTTONS INSIDE CARDS --- */
 .borrow-btn {
     background-color: #3498db;
     color: white;
@@ -226,7 +240,6 @@ ul li, .book-card {
     color: white;
 }
 
-/* The Red Delete Button */
 .delete-btn {
     background-color: #e74c3c;
     color: white;
@@ -242,4 +255,79 @@ ul li, .book-card {
     background-color: #c0392b;
     text-decoration: none;
     color: white;
+}
+
+
+/* --- SORTING LINKS --- */
+.sort-link {
+    margin: 0 10px; 
+    color: #2980b9; 
+    text-decoration: none;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.sort-link:hover {
+    text-decoration: underline;
+}
+
+.sort-link.active {
+    color: #e67e22; 
+    font-weight: bold;
+}
+
+
+/* --- MY BOOKS BUTTONS --- */
+.read-btn {
+    background-color: #27ae60;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    display: inline-block; /* Fix alignment */
+}
+.read-btn:hover { background-color: #219150; color: white; }
+
+.return-btn-red {
+    background-color: #c0392b;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    display: inline-block;
+}
+.return-btn-red:hover { background-color: #a93226; color: white; }
+
+.return-btn-yellow {
+    background-color: #f39c12;
+    color: white;
+    padding: 8px;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: 600;
+    display: inline-block;
+}
+.return-btn-yellow:hover { background-color: #d35400; color: white; }
+
+
+/* --- STOCK STATUS --- */
+.stock-status {
+    font-size: 0.85em;
+    font-weight: bold;
+}
+
+.stock-ok {
+    color: #27ae60; 
+}
+
+.stock-out {
+    color: #e74c3c; 
 }

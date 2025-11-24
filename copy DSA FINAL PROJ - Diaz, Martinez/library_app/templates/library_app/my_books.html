@@ -1,26 +1,53 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>My Borrowed Books</h2>
+<div style="text-align: center; margin-bottom: 30px;">
+    <h1>My Borrowed Books</h1>
+</div>
+
 {% for item in borrowed %}
     <div class="book-card">
-        <h4>{{ item.book.title }}</h4>
-        <p>Borrowed at: {{ item.borrowed_at }}</p>
-        
-        {% if item.is_overdue %}
-            <p class="overdue">STATUS: OVERDUE (10 mins passed)</p>
-            <button disabled>Access Revoked</button>
-            <button>Return Book</button>
-        {% else %}
-            <p class="active">Time Remaining: {{ item.remaining_time }} minutes</p>
-            {% if item.book.pdf_stub %}
-                <a href="{{ item.book.pdf_stub.url }}" target="_blank">READ PDF STUB</a>
-            {% else %}
-                <p>No file content available.</p>
-            {% endif %}
-        {% endif %}
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            
+            <div>
+                <h3>{{ item.book.title }}</h3>
+                <p style="color: #7f8c8d; margin-top: 5px;">
+                    Borrowed: {{ item.borrowed_at|date:"M d, Y, h:i a" }}
+                </p>
+
+                {% if item.is_overdue %}
+                    <p class="overdue">STATUS: OVERDUE (10 mins passed)</p>
+                {% else %}
+                    <p class="active">STATUS: ACTIVE (Time Remaining: {{ item.remaining_time }} mins)</p>
+                {% endif %}
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; width: 150px;">
+                
+                {% if item.is_overdue %}
+                    <button disabled style="background: #95a5a6; cursor: not-allowed;">Access Revoked</button>
+                    
+                    <a href="{% url 'return_book' item.id %}" class="return-btn-red">
+                        Return Book
+                    </a>
+                {% else %}
+                    {% if item.book.pdf_stub %}
+                        <a href="{{ item.book.pdf_stub.url }}" target="_blank" class="read-btn">
+                            Read Book (PDF)
+                        </a>
+                    {% else %}
+                        <button disabled>No PDF Available</button>
+                    {% endif %}
+
+                    <a href="{% url 'return_book' item.id %}" class="return-btn-yellow">
+                        Return Early
+                    </a>
+                {% endif %}
+
+            </div>
+        </div>
     </div>
 {% empty %}
-    <p>You haven't borrowed any books.</p>
+    <p style="text-align: center; color: #7f8c8d;">You haven't borrowed any books yet.</p>
 {% endfor %}
 {% endblock %}

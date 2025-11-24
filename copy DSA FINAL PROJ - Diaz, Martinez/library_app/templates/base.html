@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Library Algo System</title>
+    <title>LeBrary System</title>
     <link rel="stylesheet" href="{% static 'library_app/dashboard.css' %}">
 </head>
 <body>
     
     <nav>
         <div>
-            <a href="{% url 'library_home' %}">Library Home</a>
+            <a href="{% url 'library_home' %}">Home</a>
             {% if user.is_authenticated %}
                 <a href="{% url 'my_books' %}">My Borrowed Books</a>
                 {% if user.is_staff %}
@@ -23,7 +23,7 @@
                 <span>Hello, {{ user.username }}</span>
                 <form action="{% url 'logout' %}" method="post" style="display:inline; margin-left: 10px;">
                     {% csrf_token %}
-                    <button type="submit" style="background-color: #7f8c8d; padding: 5px 10px; font-size: 0.8em;">Logout</button>
+                    <button type="submit" style="background-color: #cd0c0c; padding: 5px 10px; font-size: 0.8em;">Logout</button>
                 </form>
             {% else %}
                 <a href="{% url 'login' %}">Login</a>
