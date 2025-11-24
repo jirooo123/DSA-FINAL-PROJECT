@@ -1,12 +1,9 @@
-/* static/dashboard.css */
 
-/* Reset some default browser styles */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Default color removed here to allow specific targeting later */
 }
 
 
@@ -21,11 +18,9 @@ body {
     max-width: 900px;
     margin: 0 auto;
     
-    /* Global text color for the background is White */
     color: #ecf0f1;
 }
 
-/* Headings on the main background (like "DM Library") */
 h1, h2, h3 {
     text-align: center;
     margin-bottom: 20px;
@@ -34,20 +29,16 @@ h1, h2, h3 {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
-/* --- WHITE CARD CONTAINERS --- */
-/* These elements float on top of the dark background, so they need White BG + Dark Text */
 nav, .search-container, .book-card, .form-container {
     background-color: white;
-    color: #333 !important; /* Force dark text inside cards */
+    color: #333 !important;
 }
 
-/* Reset headings inside white cards to Dark Blue */
 .form-container h2, .book-card strong, .book-card h3 {
     color: #2c3e50;
     text-shadow: none;
 }
 
-/* --- NAVBAR --- */
 nav {
     padding: 15px;
     border-radius: 6px;
@@ -71,7 +62,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- FORM STYLES --- */
 form {
     margin: 20px 0;
     text-align: center;
@@ -86,7 +76,7 @@ input[type="text"], select {
     width: 200px;
     max-width: 80vw;
     transition: border-color 0.3s ease;
-    color: #333; /* Input text is dark */
+    color: #333;
 }
 
 input[type="text"]:focus, select:focus {
@@ -109,7 +99,6 @@ button:hover {
     background-color: #2980b9;
 }
 
-/* --- BOOK CARDS --- */
 ul {
     list-style: none;
     margin-top: 30px;
@@ -126,12 +115,11 @@ ul li, .book-card {
     border-left: 5px solid #3498db; 
 }
 
-/* Helper classes */
+
 .overdue { color: #e74c3c; font-weight: bold; }
 .active { color: #27ae60; }
 
 
-/* --- ADD BOOK FORM STYLES --- */
 .form-container {
     background: white;
     max-width: 500px;
@@ -222,7 +210,6 @@ ul li, .book-card {
 }
 
 
-/* --- BUTTONS INSIDE CARDS --- */
 .borrow-btn {
     background-color: #3498db;
     color: white;
@@ -258,7 +245,6 @@ ul li, .book-card {
 }
 
 
-/* --- SORTING LINKS --- */
 .sort-link {
     margin: 0 10px; 
     color: #2980b9; 
@@ -277,7 +263,6 @@ ul li, .book-card {
 }
 
 
-/* --- MY BOOKS BUTTONS --- */
 .read-btn {
     background-color: #27ae60;
     color: white;
@@ -287,7 +272,7 @@ ul li, .book-card {
     text-decoration: none;
     font-size: 0.9em;
     font-weight: 600;
-    display: inline-block; /* Fix alignment */
+    display: inline-block;
 }
 .read-btn:hover { background-color: #219150; color: white; }
 
@@ -318,7 +303,6 @@ ul li, .book-card {
 .return-btn-yellow:hover { background-color: #d35400; color: white; }
 
 
-/* --- STOCK STATUS --- */
 .stock-status {
     font-size: 0.85em;
     font-weight: bold;

@@ -1,13 +1,13 @@
 import operator
 
-# --- 1. HASHING ---
+#HASHING
 def build_id_hash_map(books_list):
     book_map = {}
     for book in books_list:
         book_map[book.id] = book
     return book_map
 
-# --- 2. MERGE SORT (Updated for Reversing) ---
+#MERGE SORT
 def merge_sort(books, key='title', reverse=False):
     if len(books) <= 1:
         return books
@@ -28,11 +28,11 @@ def merge(left, right, key, reverse):
         if isinstance(val_left, str): val_left = val_left.lower()
         if isinstance(val_right, str): val_right = val_right.lower()
 
-        # LOGIC FLIP: If reverse is True, we swap the comparison
+
         if reverse:
-            condition = val_left > val_right # Descending (Z-A or 2025-2000)
+            condition = val_left > val_right
         else:
-            condition = val_left < val_right # Ascending (A-Z or 2000-2025)
+            condition = val_left < val_right
 
         if condition:
             result.append(left[i])
@@ -45,7 +45,7 @@ def merge(left, right, key, reverse):
     result.extend(right[j:])
     return result
 
-# --- 3. BINARY SEARCH ---
+#BINARY SEARCH
 def binary_search(sorted_books, target_title):
     low = 0
     high = len(sorted_books) - 1
@@ -63,7 +63,7 @@ def binary_search(sorted_books, target_title):
             high = mid - 1
     return None
 
-# --- 4. BINARY SEARCH TREE ---
+#BINARY SEARCH TREE
 class BSTNode:
     def __init__(self, book):
         self.book = book
@@ -79,14 +79,14 @@ def insert_bst(root, book):
         root.right = insert_bst(root.right, book)
     return root
 
-# Standard (Ascending): Left -> Root -> Right
+#Ascending)
 def inorder_traversal(root, result_list):
     if root:
         inorder_traversal(root.left, result_list)
         result_list.append(root.book)
         inorder_traversal(root.right, result_list)
 
-# NEW: Reverse (Descending): Right -> Root -> Left
+#(Descending)
 def reverse_inorder_traversal(root, result_list):
     if root:
         reverse_inorder_traversal(root.right, result_list)

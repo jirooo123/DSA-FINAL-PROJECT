@@ -32,11 +32,11 @@ h1 {
   font-size: 3em;
   margin: 0;
   flex-shrink: 0;
-  width: 250px; /* Fixed width to ensure separation */
+  width: 250px; 
   line-height: 1.2;
 }
 
-/* Wrapper for the right side (Messages + Form + Link) */
+
 .form-wrapper {
   flex: 1;
   display: flex;
@@ -44,7 +44,7 @@ h1 {
   width: 100%;
 }
 
-/* Alert Messages styling */
+
 .alert {
     padding: 15px;
     margin-bottom: 20px;
@@ -62,7 +62,7 @@ h1 {
     border: 1px solid #a9dfbf;
 }
 
-/* Form Inputs */
+
 label {
   display: block;
   margin-bottom: 8px;
@@ -89,7 +89,6 @@ input:focus {
   background-color: #fbfbfb;
 }
 
-/* Button */
 button {
   width: 100%;
   padding: 14px 0;
@@ -108,7 +107,6 @@ button:hover {
   background-color: #2980b9;
 }
 
-/* Helper text */
 small {
   display: block;
   color: #888;
@@ -117,7 +115,7 @@ small {
   margin-bottom: 20px;
 }
 
-/* Bottom Link */
+
 p {
   margin-top: 20px;
   text-align: center;
@@ -130,7 +128,7 @@ a {
     font-weight: 600;
 }
 
-/* Mobile Responsive */
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
